@@ -12,15 +12,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.xiaokun.trainingpractice.HomeActivity">
+        <activity android:name="com.xiaokun.trainingpractice.home.HomeActivity"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".okhttp_load_progress.ProgressActivity"/>
-        <activity android:name=".okhttp_download_file.DownLoadProgressaActivity"/>
+        <activity
+            android:name=".okhttp_load_progress.ProgressActivity"
+            android:label="监听加载进度"
+            />
+        <activity
+            android:name=".okhttp_download_file.DownLoadProgressaActivity"
+            android:label="监听下载进度以及通知栏操作"
+            />
+        <activity
+            android:name=".property_animation.AnimationActivity"
+            android:label="属性动画"
+            android:theme="@style/AppTheme.Back"
+            />
 
         <service
             android:name=".okhttp_download_file.DownloadService"

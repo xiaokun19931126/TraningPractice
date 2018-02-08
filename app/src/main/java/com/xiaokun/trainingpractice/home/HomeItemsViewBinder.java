@@ -1,5 +1,7 @@
-package com.xiaokun.trainingpractice;
+package com.xiaokun.trainingpractice.home;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.xiaokun.trainingpractice.R;
 import com.xiaokun.trainingpractice.okhttp_download_file.DownLoadProgressaActivity;
 import com.xiaokun.trainingpractice.okhttp_load_progress.ProgressActivity;
+import com.xiaokun.trainingpractice.property_animation.AnimationActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,19 +70,25 @@ public class HomeItemsViewBinder extends ItemViewBinder<HomeEntity.HomeListBean,
         @OnClick(R.id.textview)
         public void onViewClicked()
         {
+            Intent intent = new Intent();
+            Context context = textview.getContext();
             switch (mPosition)
             {
                 case 0:
-                    textview.getContext().startActivity(new Intent(textview.getContext(), ProgressActivity.class));
+                    intent.setClass(context, ProgressActivity.class);
                     break;
                 case 1:
-                    textview.getContext().startActivity(new Intent(textview.getContext(), DownLoadProgressaActivity.class));
+                    intent.setClass(context, DownLoadProgressaActivity.class);
+                    break;
+                case 2:
+                    intent.setClass(context, AnimationActivity.class);
                     break;
                 default:
-
+                    intent.setClass(context, ProgressActivity.class);
                     break;
             }
-
+            context.startActivity(intent);
+            ((Activity) context).overridePendingTransition(R.anim.slide_in_right, 0);
         }
 
     }
