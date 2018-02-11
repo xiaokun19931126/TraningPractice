@@ -34,6 +34,11 @@
             android:theme="@style/AppTheme.Back"
             />
 
+        <activity
+            android:name=".retrofit.RetrofitActivity"
+            android:label="retrofit调试"
+            />
+
         <service
             android:name=".okhttp_download_file.DownloadService"
             android:enabled="true"
