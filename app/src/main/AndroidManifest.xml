@@ -39,6 +39,11 @@
             android:label="retrofit调试"
             />
 
+        <activity
+            android:name=".recyclerview_snap.RecyclerViewSnapActivity"
+            android:label="recyclerview"
+            />
+
         <service
             android:name=".okhttp_download_file.DownloadService"
             android:enabled="true"

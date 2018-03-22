@@ -14,6 +14,7 @@ import com.xiaokun.trainingpractice.R;
 import com.xiaokun.trainingpractice.okhttp_download_file.DownLoadProgressaActivity;
 import com.xiaokun.trainingpractice.okhttp_load_progress.ProgressActivity;
 import com.xiaokun.trainingpractice.property_animation.AnimationActivity;
+import com.xiaokun.trainingpractice.recyclerview_snap.RecyclerViewSnapActivity;
 import com.xiaokun.trainingpractice.retrofit.RetrofitActivity;
 
 import butterknife.BindView;
@@ -86,6 +87,9 @@ public class HomeItemsViewBinder extends ItemViewBinder<HomeEntity.HomeListBean,
                     break;
                 case 4:
                     intent.setClass(context, RetrofitActivity.class);
+                    break;
+                case 5:
+                    intent.setClass(context, RecyclerViewSnapActivity.class);
                     break;
                 default:
                     intent.setClass(context, ProgressActivity.class);
