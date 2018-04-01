@@ -111,14 +111,7 @@ public class ProgressActivity extends AppCompatActivity implements View.OnClickL
             case R.id.load:
                 isFirst = true;
                 startTime = System.currentTimeMillis();
-                new Thread(new Runnable()
-                {
-                    @Override
-                    public void run()
-                    {
-                        load();
-                    }
-                }).start();
+                load();
                 mProgress.setText("加载进度:" + 0 + "%");
                 break;
             default:

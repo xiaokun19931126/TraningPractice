@@ -1,4 +1,4 @@
-package com.xiaokun.trainingpractice;
+package com.xiaokun.trainingpractice.home;
 
 import java.util.List;
 

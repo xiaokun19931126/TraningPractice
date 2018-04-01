@@ -1,4 +1,4 @@
-package com.xiaokun.trainingpractice;
+package com.xiaokun.trainingpractice.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +8,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.google.gson.Gson;
+import com.xiaokun.trainingpractice.R;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
 import butterknife.BindView;
@@ -61,7 +66,7 @@ public class HomeActivity extends AppCompatActivity
                     {
                         swipeRefreshLayout.setRefreshing(false);
                     }
-                },1000);
+                }, 1000);
             }
         });
     }
@@ -81,6 +86,7 @@ public class HomeActivity extends AppCompatActivity
 
     private void initData()
     {
+        String json = readJsonFromAssets();
         HomeEntity homeEntity = new Gson().fromJson(json, HomeEntity.class);
         List<HomeEntity.HomeListBean> homeList = homeEntity.getHomeList();
         items.addAll(homeList);
@@ -88,17 +94,27 @@ public class HomeActivity extends AppCompatActivity
         mAdapter.notifyDataSetChanged();
     }
 
-    String json = "{\n" +
-            "  \"HomeList\": [\n" +
-            "    {\n" +
-            "      \"title\": \"OkHttp监听加载进度\"\n" +
-            "    },\n" +
-            "    {\n" +
-            "      \"title\": \"下载监听，且通知栏更新进度\"\n" +
-            "    }\n" +
-            "  ],\n" +
-            "  \"Code\": 0,\n" +
-            "  \"Message\": \"ok\"\n" +
-            "}";
+    private String readJsonFromAssets()
+    {
+        try
+        {
+            InputStream is = getAssets().open("home.json");
+            InputStreamReader in = new InputStreamReader(is, "utf-8");
+            BufferedReader br = new BufferedReader(in);
+            StringBuffer sb = new StringBuffer();
+            String mLine;
+            while ((mLine = br.readLine()) != null)
+            {
+                sb.append(mLine);
+            }
+            return sb.toString();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    //String json = "{\"HomeList\":[{\"title\":\"OkHttp监听加载进度\"},{\"title\":\"下载监听，且通知栏更新进度\"},{\"title\":\"属性动画\"},{\"title\":\"空布局\"}],\"Code\":0,\"Message\":\"ok\"}";
 
 }
