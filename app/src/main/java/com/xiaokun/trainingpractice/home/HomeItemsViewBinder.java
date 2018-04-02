@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.xiaokun.trainingpractice.R;
+import com.xiaokun.trainingpractice.coordinatorLayout_behavior.CoordinatorLayoutActivity;
 import com.xiaokun.trainingpractice.okhttp_download_file.DownLoadProgressaActivity;
 import com.xiaokun.trainingpractice.okhttp_load_progress.ProgressActivity;
 import com.xiaokun.trainingpractice.property_animation.AnimationActivity;
@@ -90,6 +91,9 @@ public class HomeItemsViewBinder extends ItemViewBinder<HomeEntity.HomeListBean,
                     break;
                 case 5:
                     intent.setClass(context, RecyclerViewSnapActivity.class);
+                    break;
+                case 6:
+                    intent.setClass(context, CoordinatorLayoutActivity.class);
                     break;
                 default:
                     intent.setClass(context, ProgressActivity.class);

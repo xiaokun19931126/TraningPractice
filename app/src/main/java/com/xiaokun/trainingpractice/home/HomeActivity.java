@@ -53,7 +53,7 @@ public class HomeActivity extends AppCompatActivity
 
     private void initSwipeRefreshLayout()
     {
-//        swipeRefreshLayout.setEnabled(false);
+        swipeRefreshLayout.setEnabled(false);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener()
         {
             @Override
