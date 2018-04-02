@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.xiaokun.trainingpractice.R;
+import com.xiaokun.trainingpractice.util.DimenUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,8 @@ public class RecyclerViewSnapActivity extends AppCompatActivity
         }
     };
     private DataAdapter dataAdapter;
+    private int itemCount;
+    private LinearLayoutManager manager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -80,7 +83,7 @@ public class RecyclerViewSnapActivity extends AppCompatActivity
 
     private void initRecyclerView()
     {
-        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager = new LinearLayoutManager(this);
         manager.setOrientation(LinearLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.addItemDecoration(new GalleryItemDecoration());
@@ -90,6 +93,7 @@ public class RecyclerViewSnapActivity extends AppCompatActivity
 
         dataAdapter = new DataAdapter(this);
         recyclerView.setAdapter(dataAdapter);
+        itemCount = dataAdapter.getItemCount();
     }
 
     private void initDataWithItems()
@@ -125,5 +129,12 @@ public class RecyclerViewSnapActivity extends AppCompatActivity
 
         dataAdapter.setData(imgUrls);
         dataAdapter.notifyDataSetChanged();
+//        recyclerView.scrollToPosition(itemCount / 2);
+
+//        manager.scrollToPositionWithOffset(0, DimenUtils.dpToPx(20));
+        manager.scrollToPositionWithOffset(100* imgUrls.size(), DimenUtils.dpToPx(20));
+
+        //获取position和data中的size的对应位置   position%size 求余即可
+//        recyclerView.scrollTo();
     }
 }

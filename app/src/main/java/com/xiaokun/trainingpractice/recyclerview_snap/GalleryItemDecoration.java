@@ -28,6 +28,8 @@ public class GalleryItemDecoration extends RecyclerView.ItemDecoration
     private int sidePageVisionWidth = 20;
     private RecyclerView recyclerView;
     private boolean isFirstOne = false;
+    private int itemCount;
+    private int otherWidth;
 
     @Override
     public void getItemOffsets(Rect outRect, final View view, final RecyclerView parent, RecyclerView.State state)
@@ -36,7 +38,7 @@ public class GalleryItemDecoration extends RecyclerView.ItemDecoration
         //获取当前item的position
         final int position = parent.getChildAdapterPosition(view);
         //获取item的数量
-        final int itemCount = parent.getAdapter().getItemCount();
+        itemCount = parent.getAdapter().getItemCount();
 
         recyclerView = parent;
 
@@ -71,7 +73,7 @@ public class GalleryItemDecoration extends RecyclerView.ItemDecoration
      */
     private void setHorizontalParams(ViewGroup parent, View item, int position, int itemCount)
     {
-        int otherWidth = DimenUtils.dpToPx(4 * mPageMargin + 2 * sidePageVisionWidth);
+        otherWidth = DimenUtils.dpToPx(4 * mPageMargin + 2 * sidePageVisionWidth);
         int itemWidth = parent.getWidth() - otherWidth;
         int itemHeight = parent.getHeight();
 
@@ -117,6 +119,11 @@ public class GalleryItemDecoration extends RecyclerView.ItemDecoration
                 recyclerView.scrollToPosition(0);
                 isFirstOne = true;
             }
+//            int i = itemCount / 2;
+//            if (position == i && !isFirstOne)
+//            {
+//                isFirstOne = true;
+//            }
         }
     }
 

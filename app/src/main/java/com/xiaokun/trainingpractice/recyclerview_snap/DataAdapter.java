@@ -3,6 +3,7 @@ package com.xiaokun.trainingpractice.recyclerview_snap;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerView.Adapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ import butterknife.ButterKnife;
 
 public class DataAdapter extends Adapter<RecyclerView.ViewHolder>
 {
-
+    private static final String TAG = "DataAdapter";
     private Context mContext;
     private List<String> imgUrls;
 
@@ -59,9 +60,12 @@ public class DataAdapter extends Adapter<RecyclerView.ViewHolder>
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position)
     {
+        int size = imgUrls.size();
+        Log.e(TAG, "position:" + position);
+
         if (holder instanceof MyHolder)
         {
-            ((MyHolder) holder).setItem(imgUrls.get(position % imgUrls.size()));
+            ((MyHolder) holder).setItem(imgUrls.get(position % size));
         }
     }
 
@@ -81,6 +85,9 @@ public class DataAdapter extends Adapter<RecyclerView.ViewHolder>
         {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            ViewGroup.LayoutParams layoutParams = imagView.getLayoutParams();
+            layoutParams.width = 960;
+            imagView.setLayoutParams(layoutParams);
         }
 
         void setItem(String url)
@@ -88,5 +95,6 @@ public class DataAdapter extends Adapter<RecyclerView.ViewHolder>
             Glide.with(imagView.getContext()).load(url).into(imagView);
         }
     }
+
 
 }
