@@ -17,6 +17,7 @@ import com.xiaokun.trainingpractice.okhttp_load_progress.ProgressActivity;
 import com.xiaokun.trainingpractice.property_animation.AnimationActivity;
 import com.xiaokun.trainingpractice.recyclerview_snap.RecyclerViewSnapActivity;
 import com.xiaokun.trainingpractice.retrofit.RetrofitActivity;
+import com.xiaokun.trainingpractice.workmanager.WorkerManagerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -94,6 +95,9 @@ public class HomeItemsViewBinder extends ItemViewBinder<HomeEntity.HomeListBean,
                     break;
                 case 6:
                     intent.setClass(context, CoordinatorLayoutActivity.class);
+                    break;
+                case 7:
+                    intent.setClass(context, WorkerManagerActivity.class);
                     break;
                 default:
                     intent.setClass(context, ProgressActivity.class);

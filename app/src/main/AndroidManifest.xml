@@ -47,6 +47,14 @@
             android:name=".coordinatorLayout_behavior.CoordinatorLayoutActivity"
             android:label="CoordinatorLayout"/>
 
+        <activity
+            android:name=".workmanager.WorkerManagerActivity"
+            android:label="workermanager定时任务"/>
+
+        <activity
+            android:name=".workmanager.SecondActivity"
+            android:label="定时任务跳转"/>
+
         <service
             android:name=".okhttp_download_file.DownloadService"
             android:enabled="true"
