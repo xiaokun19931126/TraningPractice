@@ -43,6 +43,9 @@
             android:name=".recyclerview_snap.RecyclerViewSnapActivity"
             android:label="recyclerview"
             />
+        <activity
+            android:name=".coordinatorLayout_behavior.CoordinatorLayoutActivity"
+            android:label="CoordinatorLayout"/>
 
         <service
             android:name=".okhttp_download_file.DownloadService"
